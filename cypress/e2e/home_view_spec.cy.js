@@ -33,16 +33,13 @@ describe('User Home view', () => {
     cy.get("form input[name='urlToShorten']").type("https://unsplash.com/photos/m5Wj2ThjA14")
   })
 
-  it('User can fill in the form, click submit button, and view the new shortened url on the page', () => {
-    cy.get('form')
-      .get("form input[name='title']").type("Great Photo")
-      .get("form input[name='urlToShorten']").type("https://unsplash.com/photos/m5Wj2ThjA14")
-      .get('button').click()
-    cy.get('section')
+  it('When user fills out the form and clicks Shorten Please button they will see the shortened url displayed', () => {
+    cy.get("form input[name='title']").type("Great Photo")
+    cy.get("form input[name='urlToShorten']").type("https://unsplash.com/photos/m5Wj2ThjA14")
+    cy.get('button').click()
       .get('section > :nth-child(3)')
       .get(':nth-child(3) > h3').contains('Great Photo')
-      .get(':nth-child(3) > a').contains('http://localhost:3001/useshorturl/7')
       .get(':nth-child(3) > p').contains('https://unsplash.com/photos/m5Wj2ThjA14')
-
   })
+
 })

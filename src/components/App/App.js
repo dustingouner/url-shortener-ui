@@ -8,14 +8,20 @@ export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      urls: []
+      urls: [], 
     }
   }
 
   componentDidMount() {
-  }
+    getUrls()
+    .then(data => {
+      this.setState({ urls: data.urls });
+     
+  })
+}
 
   render() {
+    console.log(this.state.urls)
     return (
       <main className="App">
         <header>

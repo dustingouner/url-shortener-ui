@@ -20,6 +20,8 @@ export class App extends Component {
   })
 }
 
+addNewUrl =
+
   render() {
     console.log(this.state.urls)
     return (
